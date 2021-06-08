@@ -2,7 +2,7 @@ DraggingPic[] dragImages = new DraggingPic[7];
 Pin[] pins1 = new Pin[2];
 Pin[] pins2 = new Pin[2];
 
-PImage centerpiece, bg;
+PImage centerpiece, cloud, bg;
 float curvex1, curvey1, curvex2, curvey2, curvex3, curvey3, curvex4, curvey4;
 
 void setup() {
@@ -13,8 +13,9 @@ void setup() {
   rectMode (RADIUS);
   bg = loadImage("bg.png");
   centerpiece = loadImage("centerpiece.png");
+  cloud = loadImage("cloud.png");
   dragImages[0] = new  DraggingPic(180, 50, "lampedusa.jpg");
-  dragImages[1] = new  DraggingPic(306, 553, "Pereda-varon_de_dolores.jpg");
+  dragImages[1] = new  DraggingPic(306, 555, "Pereda-varon_de_dolores.jpg");
   dragImages[2] = new  DraggingPic(588, 25, "clipping1.png");
   dragImages[3] = new  DraggingPic(588, 117, "clipping2.png");
   dragImages[4] = new  DraggingPic(588, 144, "clipping3.png");
@@ -54,11 +55,18 @@ void draw() {
   textSize (14);
   text ("Photos of Hanged Christ \nare appearing around town.\nConnection to E⬛⬛⬛⬛\n pre-Indo-European sect \n is possible. Investigate \nat earliest convenience.", width/2, height/2-75);
   noStroke();
-  rect (width/2+59, height/2-37, 30, 7);
+  rect (width/2+59, height/2-37, 30, 7); //black bar
   blendMode(DARKEST);
   image(centerpiece,width/2-30,height/2+40);
   centerpiece.resize(75,0);
+  popStyle();
+  pushStyle();//textura noise no centerpiece abaixo
+  blendMode(MULTIPLY);
+  tint(255,100);
+  image(cloud,width/2-105,height/2-105);
+  cloud.resize(210,0);
   popStyle(); //centerpiece style end
+   
   
   for (DraggingPic currentDraggingPic : dragImages) {
     currentDraggingPic.display();
