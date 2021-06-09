@@ -78,7 +78,7 @@ void draw() {
     currentDraggingPin.mouseDragged();
   }//for
   
-  for (Pin currentDraggingPin : pins2) { //TODO fix grab multiple pin (inneficient stack of fors)
+  for (Pin currentDraggingPin : pins2) { //TODO fix grab multiple pin (inneficient stack of fors; maybe problem is below)
     currentDraggingPin.display();
     currentDraggingPin.mouseDragged();
   }//for
@@ -102,7 +102,7 @@ void mousePressed() {
     
   }//for
   
-  for (Pin currentDraggingPin : pins1) {
+  for (Pin currentDraggingPin : pins1) { //TODO fix grab multiple pin (inneficient stack of fors; maybe problem is above)
     currentDraggingPin.draggingpinMousePressed();
     
     //leave "check mousepos & grab pics" loop as soon as one is grabbed to prevent grabbing many
