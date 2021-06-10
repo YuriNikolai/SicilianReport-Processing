@@ -14,26 +14,26 @@ class Pin {
   }// constructor
  
   void display() {    
-
-image(sample, x, y);
-sample.resize (20,0);
-
-curvex1 = pins1[1].x+(sample.width); // why is the bend curving to the right without these???
-curvey1 = -1000;
-curvex2 = pins1[0].x+(sample.width/2);
-curvey2 = pins1[0].y+(sample.height/2); 
-curvex3 = pins1[1].x+(sample.width/2);
-curvey3 = pins1[1].y+(sample.height/2);
-curvex4 = pins1[1].x+(sample.width);
-curvey4 = -1000;
-
-pushStyle(); //begin curve styling
-noFill();
-strokeWeight(4);
-stroke(255, 0, 0);
-curveTightness(0.6);
-curve(curvex1, curvey1, curvex2, curvey2, curvex3, curvey3, curvex4, curvey4);
-popStyle(); //end curve styling
+    
+    image(sample, x, y);
+    sample.resize (20,0);
+    
+    curvex1 = pins1[1].x+(sample.width); // why is the bend curving to the right without these???
+    curvey1 = -1000;
+    curvex2 = pins1[0].x+(sample.width/2);
+    curvey2 = pins1[0].y+(sample.height/2); 
+    curvex3 = pins1[1].x+(sample.width/2);
+    curvey3 = pins1[1].y+(sample.height/2);
+    curvex4 = pins1[1].x+(sample.width);
+    curvey4 = -1000;
+    
+    pushStyle(); //begin curve styling
+    noFill();
+    strokeWeight(4);
+    stroke(255, 0, 0);
+    curveTightness(0.6);
+    curve(curvex1, curvey1, curvex2, curvey2, curvex3, curvey3, curvex4, curvey4);
+    popStyle(); //end curve styling
 
   }
   void draggingpinMousePressed() {
