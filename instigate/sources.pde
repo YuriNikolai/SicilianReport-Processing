@@ -6,10 +6,7 @@ Man of Sorrows paintings
 1.Cristo, Varón de Dolores - Public domain
 https://commons.wikimedia.org/wiki/File:Pereda-varon_de_dolores.jpg
 
-2.Cristo Dolente - Public domain
-https://commons.wikimedia.org/wiki/File:Sodoma,_cristo_dolente,_uffizi.jpg
-
-3.Man of Sorrows - Public Domain
+2.Man of Sorrows - Public Domain
 https://commons.wikimedia.org/wiki/File:Man_van_Smarten,_James_Ensor,_1891,_Koninklijk_Museum_voor_Schone_Kunsten_Antwerpen,_3320.002.jpeg
 ====
 Historical photographs

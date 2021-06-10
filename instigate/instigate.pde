@@ -1,4 +1,4 @@
-DraggingPic[] dragImages = new DraggingPic[9];
+DraggingPic[] dragImages = new DraggingPic[11];
 
 Pin[] pins1 = new Pin[2];
 Pin[] pins2 = new Pin[2];
@@ -24,8 +24,11 @@ void setup() {
   dragImages[4] = new  DraggingPic(588, 159, "clipping3.png");
   dragImages[5] = new  DraggingPic(588, 185, "clipping4.png");
   dragImages[6] = new  DraggingPic(585, 246, "marabout1970.png");
-  dragImages[7] = new  DraggingPic(400, 50, "crescentiicard.png");
-  dragImages[8] = new  DraggingPic(372, 31, "lampedusacard.png");
+  dragImages[7] = new  DraggingPic(407, 75, "worncard2.png");
+  dragImages[8] = new  DraggingPic(416, 38, "worncard1.png");
+  dragImages[9] = new  DraggingPic(400, 50, "crescentiicard.png");
+  dragImages[10] = new  DraggingPic(372, 31, "lampedusacard.png");
+
   
   pins1[0] = new Pin(10, 10, "pin.png");
   pins1[1] = new Pin(155, 30, "pin.png");
