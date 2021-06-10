@@ -21,6 +21,9 @@ https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_Portret_van_een_m
 
 3. Paper scrap - CC-BY 4.0 International
 https://commons.wikimedia.org/wiki/File:Paper,_scrap_(AM_1999.144.55-1).jpg
+
+4. Crescentii coat of arms - CC-BY-SA 3.0 Unported
+https://commons.wikimedia.org/wiki/File:Pianeta_con_stemma_cardinale_marcello_crescenzi,_in_gros_de_tours_laminato,_ricamato_con_argento_e_oro_filato,_1750_ca._02.JPG
 ====
 Photographs edited by me (i.e. the marabout photo) are 
 released under the same license as the original photos.

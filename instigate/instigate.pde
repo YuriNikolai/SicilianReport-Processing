@@ -1,4 +1,4 @@
-DraggingPic[] dragImages = new DraggingPic[7];
+DraggingPic[] dragImages = new DraggingPic[9];
 
 Pin[] pins1 = new Pin[2];
 Pin[] pins2 = new Pin[2];
@@ -17,13 +17,15 @@ void setup() {
   centerpiece = loadImage("centerpiece.png");
   cloud = loadImage("cloud.png");
   
-  dragImages[0] = new  DraggingPic(180, 50, "lampedusa.jpg");
-  dragImages[1] = new  DraggingPic(306, 555, "Pereda-varon_de_dolores.jpg");
+  dragImages[0] = new  DraggingPic(190, 30, "lampedusa.jpg");
+  dragImages[1] = new  DraggingPic(306, 555, "christpereda.jpg");
   dragImages[2] = new  DraggingPic(588, 25, "clipping1.png");
   dragImages[3] = new  DraggingPic(588, 117, "clipping2.png");
   dragImages[4] = new  DraggingPic(588, 159, "clipping3.png");
   dragImages[5] = new  DraggingPic(588, 185, "clipping4.png");
-  dragImages[6] = new  DraggingPic(345, 50, "marabout 1970.png");
+  dragImages[6] = new  DraggingPic(585, 246, "marabout1970.png");
+  dragImages[7] = new  DraggingPic(400, 50, "crescentiicard.png");
+  dragImages[8] = new  DraggingPic(372, 31, "lampedusacard.png");
   
   pins1[0] = new Pin(10, 10, "pin.png");
   pins1[1] = new Pin(155, 30, "pin.png");
