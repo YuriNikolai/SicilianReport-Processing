@@ -42,7 +42,7 @@ class DraggingPic {
     yOffset = 0;
   }
  
-  void mouseDragged() {
+  void mouseDraggedIfHolding() {
     if (hold) {
       x=mouseX - xOffset; //Preserva o offset, ao invés de usar sample.width/2
       y=mouseY - yOffset;

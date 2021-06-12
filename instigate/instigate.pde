@@ -1,14 +1,17 @@
 DraggingPic[] dragImages = new DraggingPic[11];
 
-Pin[] pins1 = new Pin[2];
-Pin[] pins2 = new Pin[2];
+int NUM_OF_LOOSE_PINS = 10;
+int NUM_OF_CONN_PINS = 8;
+float LINE_TIGHTNESS = 0.6; //from 0 to 1
+
+Pin[] loosePins = new Pin[NUM_OF_LOOSE_PINS];
+Pin[] connPins = new Pin[NUM_OF_CONN_PINS];
 
 PImage centerpiece, cloud, bg;
-float curvex1, curvey1, curvex2, curvey2, curvex3, curvey3, curvex4, curvey4;
 
 void setup() {
   
-  size(768, 1024); //tiles 256x
+  size(768, 1000); //tiles 256x
   background(255);   
   noStroke(); 
   noSmooth();
@@ -17,24 +20,30 @@ void setup() {
   centerpiece = loadImage("centerpiece.png");
   cloud = loadImage("cloud.png");
   
-  dragImages[0] = new  DraggingPic(190, 30, "lampedusa.jpg");
-  dragImages[1] = new  DraggingPic(306, 555, "christpereda.jpg");
-  dragImages[2] = new  DraggingPic(588, 25, "clipping1.png");
-  dragImages[3] = new  DraggingPic(588, 117, "clipping2.png");
-  dragImages[4] = new  DraggingPic(588, 159, "clipping3.png");
-  dragImages[5] = new  DraggingPic(588, 185, "clipping4.png");
-  dragImages[6] = new  DraggingPic(585, 246, "marabout1970.png");
-  dragImages[7] = new  DraggingPic(407, 75, "worncard2.png");
-  dragImages[8] = new  DraggingPic(416, 38, "worncard1.png");
-  dragImages[9] = new  DraggingPic(400, 50, "crescentiicard.png");
-  dragImages[10] = new  DraggingPic(372, 31, "lampedusacard.png");
-
+  //setup images         lampedusa    christ      clip1     clip2       clip3       clip4       marabout   worncard1  worncard2  crescentii lampcard
+  int[] imgPositions = {570, 733,   306, 545,   25, 18,   588, 212,   588, 261,   588, 294,   587, 45,   70, 665,   63, 688,   45, 706,   26, 726};
+  String[] imgNames = {"lampedusa.jpg", "christpereda.jpg", "clipping1.png", "clipping2.png", "clipping3.png", "clipping4.png",
+                       "marabout1970.png", "worncard2.png", "worncard1.png", "crescentiicard.png", "lampedusacard.png"};
   
-  pins1[0] = new Pin(10, 10, "pin.png");
-  pins1[1] = new Pin(155, 30, "pin.png");
-  pins2[0] = new Pin(10, 50, "pinblue.png");
-  pins2[1] = new Pin(31, 50, "pinblue.png");
-}
+  for (int i = 0; i < imgNames.length; i++) {
+    dragImages[i] = new DraggingPic(imgPositions[i*2], imgPositions[i*2 + 1], imgNames[i]);
+  }
+    
+  //for (int i = 0; i < imgPositions.length; i++) {
+  //  if (i % 2 == 0) {
+  //    dragImages[i/2] = new DraggingPic(imgPositions[i], imgPositions[i+1], imgNames[i/2]);
+  //  }
+  //}
+  
+  //setup pins
+  for(int i = 0; i < NUM_OF_LOOSE_PINS; i++) {
+    loosePins[i] = new Pin(20, 20 + (23 * i), "pinblue.png");
+  }
+  for(int i = 0; i < NUM_OF_CONN_PINS; i++) {
+    connPins[i] = new Pin((20 + 50*i), 50, "pin.png");
+  }
+  
+} //setup
  
 void draw() {
   background(120, 80, 40); //style background start
@@ -79,19 +88,45 @@ void draw() {
   
   for (DraggingPic currentDraggingPic : dragImages) {
     currentDraggingPic.display();
-    currentDraggingPic.mouseDragged();
+    currentDraggingPic.mouseDraggedIfHolding();
   }//for
   
-  for (Pin currentDraggingPin : pins1) {
+  for (Pin currentDraggingPin : connPins) {
     currentDraggingPin.display();
-    currentDraggingPin.mouseDragged();
+    currentDraggingPin.mouseDraggedIfHolding();
   }//for
   
-  for (Pin currentDraggingPin : pins2) {
+  for (Pin currentDraggingPin : loosePins) {
     currentDraggingPin.display();
-    currentDraggingPin.mouseDragged();
+    currentDraggingPin.mouseDraggedIfHolding();
   }//for
- 
+  
+  //Code to connect pins
+  float x1, y1, x2, y2, x3, y3, x4, y4;
+  
+  pushStyle(); //begin curve styling
+  noFill();
+  strokeWeight(4);
+  stroke(255, 0, 0);
+  curveTightness(LINE_TIGHTNESS);
+  
+  for (int i = 0; i < NUM_OF_CONN_PINS; i = i+2) {
+    x1 = connPins[i].x + 10;
+    y1 = connPins[i].y + 10 - 1000;
+    
+    x2 = connPins[i].x + 10;
+    y2 = connPins[i].y + 10;
+    
+    x3 = connPins[i+1].x + 10;
+    y3 = connPins[i+1].y + 10;
+    
+    x4 = connPins[i+1].x + 10;
+    y4 = connPins[i+1].y + 10 - 1000;
+    
+    curve(x1, y1, x2, y2, x3, y3, x4, y4);
+  }
+  
+  popStyle();//end curve styling
  
   fill(0);
   text( "x: " + mouseX + " y: " + mouseY, mouseX, mouseY ); //debug
@@ -102,7 +137,9 @@ void draw() {
  
 void mousePressed() { 
   for (int i = dragImages.length - 1; i >= 0; i--) {//Starts from the last, loops backward so we always grab pic on top
-    dragImages[i].draggingpicMousePressed();
+    if (mouseButton == LEFT) {
+      dragImages[i].draggingpicMousePressed();
+    }
     
     //leave "check mousepos & grab pics" loop as soon as one is grabbed to prevent grabbing many
     if (dragImages[i].hold == true) {
@@ -111,26 +148,16 @@ void mousePressed() {
     
   }//for
   
-  for (Pin currentDraggingPin : pins1) {
-    currentDraggingPin.draggingpinMousePressed();
-    
-    //leave "check mousepos & grab pics" loop as soon as one is grabbed to prevent grabbing many
-    if (currentDraggingPin.hold == true) {
-      break;
-    }
-
-  }//for
+  Pin[] pins = new Pin[NUM_OF_LOOSE_PINS + NUM_OF_CONN_PINS];
+  pins = (Pin[]) concat(connPins, loosePins);
   
-   for (Pin currentDraggingPin : pins2) {
-    currentDraggingPin.draggingpinMousePressed(); //TODO fix grab multiple pin (inneficient stack of fors)
-    
-    //leave "check mousepos & grab pics" loop as soon as one is grabbed to prevent grabbing many
-    if (currentDraggingPin.hold == true) {
+  for (Pin currentDraggingPin : pins) {
+    currentDraggingPin.draggingpinMousePressed();
+ 
+    if (mouseButton == RIGHT && currentDraggingPin.hold == true) {
       break;
     }
-
   }//for
-
 }
 
 void mouseReleased() { //sets 'hold' variable to false
@@ -138,12 +165,11 @@ void mouseReleased() { //sets 'hold' variable to false
     currentDraggingPic.draggingpicMouseReleased();
   }//for
   
-  for (Pin currentDraggingPin : pins1) {
+  for (Pin currentDraggingPin : connPins) {
     currentDraggingPin.draggingpinMouseReleased();
   }//for
 
-
- for (Pin currentDraggingPin : pins2) {
+ for (Pin currentDraggingPin : loosePins) {
     currentDraggingPin.draggingpinMouseReleased();
   }//for
 }
