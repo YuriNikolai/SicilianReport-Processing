@@ -22,4 +22,4 @@ Left mouse drag to carry pins and images. You can connect pins by dropping them 
 
   The worn cards contain Vigenère ciphers. Outside of brute force, a crescent drawing tells you which key goes on which card. The card with the 'gattopardo' key translates to "What was brought to the shaded mausoleum by the sea?" It is accompanied by a non-encrypted bit of text saying "Who brought it?" This could tentatively be connected to marabouts, saracens, berbers, or any other number of muslim parties active in the Mediterranean.
   
-  The second worn card, with the key 'crescent', translates to 
+  The second worn card, with the key 'crescent', translates to "To E??????, Hanged Christ meant the questioning of historical dogma. Why did the Crescentii support them?" A second unencrypted part says "No matter now. Damnatio Memorae." The redacted word's lenght needs to be correctly guessed from the centerpiece or from the letter for proper decryption.
