@@ -1,7 +1,7 @@
 DraggingPic[] dragImages = new DraggingPic[11];
 
-int NUM_OF_LOOSE_PINS = 10;
-int NUM_OF_CONN_PINS = 8;
+int NUM_OF_LOOSE_PINS = 8;
+int NUM_OF_CONN_PINS = 10;
 float LINE_TIGHTNESS = 0.6; //from 0 to 1
 
 Pin[] loosePins = new Pin[NUM_OF_LOOSE_PINS];
@@ -21,7 +21,7 @@ void setup() {
   cloud = loadImage("cloud.png");
   
   //setup images         lampedusa    christ      clip1     clip2       clip3       clip4       marabout   worncard1  worncard2  crescentii lampcard
-  int[] imgPositions = {570, 733,   306, 545,   25, 18,   588, 212,   588, 261,   588, 294,   587, 45,   70, 665,   63, 688,   45, 706,   26, 726};
+  int[] imgPositions = {570, 733,   306, 545,   18, 180,   588, 212,   588, 261,   588, 294,   587, 45,   70, 665,   63, 688,   45, 706,   26, 726};
   String[] imgNames = {"lampedusa.jpg", "christpereda.jpg", "clipping1.png", "clipping2.png", "clipping3.png", "clipping4.png",
                        "marabout1970.png", "worncard2.png", "worncard1.png", "crescentiicard.png", "lampedusacard.png"};
   
