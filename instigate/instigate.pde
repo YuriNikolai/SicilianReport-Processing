@@ -28,18 +28,12 @@ void setup() {
   for (int i = 0; i < imgNames.length; i++) {
     dragImages[i] = new DraggingPic(imgPositions[i*2], imgPositions[i*2 + 1], imgNames[i]);
   }
-    
-  //for (int i = 0; i < imgPositions.length; i++) {
-  //  if (i % 2 == 0) {
-  //    dragImages[i/2] = new DraggingPic(imgPositions[i], imgPositions[i+1], imgNames[i/2]);
-  //  }
-  //}
   
   //setup pins
   for(int i = 0; i < NUM_OF_LOOSE_PINS; i++) {
     loosePins[i] = new Pin(20, 20 + (23 * i), "pinblue.png");
   }
-  for(int i = 0; i < NUM_OF_CONN_PINS; i++) {
+  for(int i = 0; i < NUM_OF_CONN_PINS; i++) { //TODO custom starting positions
     connPins[i] = new Pin((20 + 50*i), 50, "pin.png");
   }
   
@@ -133,7 +127,7 @@ void draw() {
 
 }//draw
  
-// --------------Grabbing a pin and a photo at the same time is intented behavior
+// --------------Grabbing a pin and a photo at the same time is intended behavior
  
 void mousePressed() { 
   for (int i = dragImages.length - 1; i >= 0; i--) {//Starts from the last, loops backward so we always grab pic on top
