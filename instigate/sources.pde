@@ -1,5 +1,5 @@
 /*
-Below are listed all sources for images used as well as their licenses.
+Below are listed all sources for media used as well as their licenses.
 ====
 Man of Sorrows paintings
 
@@ -28,8 +28,10 @@ SVG icons from the Noun project: https://thenounproject.com/
 Photographs edited by me (i.e. the marabout photo) are 
 released under the same license as the original photos.
 
+Paper SFX by me, licensed as CC-BY 3.0 - https://freesound.org/people/YuriNikolai/sounds/577355/
+
 All original assets - bg.png, Pin.png etc. are made by me (Yuri Nikolai) and 
-co-licensed under the same license as the code (MIT) or CC-BY-SA 4.0 - use 
+co-licensed under the same license as the code (GPL 3.0) or CC-BY-SA 4.0 - use 
 your license of choice when reusing.
 
 (Yes, co-licensing is a thing. Wikipedia does this.)
