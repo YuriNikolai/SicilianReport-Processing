@@ -7,6 +7,10 @@ int NUM_OF_CONN_PINS = 10;
 float LINE_TIGHTNESS = 0.6; //from 0 to 1
 
 SoundFile dropsfx;
+SoundFile grabsfx;
+SoundFile sheet1;
+SoundFile sheet2;
+SoundFile sheet3;
 
 Pin[] loosePins = new Pin[NUM_OF_LOOSE_PINS];
 Pin[] connPins = new Pin[NUM_OF_CONN_PINS];
@@ -23,7 +27,11 @@ void setup() {
   bg = loadImage("bg.png");
   centerpiece = loadImage("centerpiece.png");
   cloud = loadImage("cloud.png");
+  grabsfx = new SoundFile(this, "paper1.wav");
   dropsfx = new SoundFile(this, "paper2.wav");
+  sheet1 = new SoundFile(this, "sheet1.wav");
+  sheet2 = new SoundFile(this, "sheet2.wav");
+  sheet3 = new SoundFile(this, "sheet3.wav");
 
   //setup images         lampedusa    christ      clip1     clip2       clip3       clip4       marabout   worncard1  worncard2  crescentii lampcard
   int[] imgPositions = {570, 733, 306, 545, 18, 180, 588, 212, 588, 261, 588, 294, 587, 45, 70, 665, 63, 688, 45, 706, 26, 726};
@@ -131,7 +139,7 @@ void draw() {
 
 // --------------Grabbing a pin and a photo at the same time is intended behavior
 
-void mousePressed() { 
+void mousePressed() {
   for (int i = dragImages.length - 1; i >= 0; i--) {//Starts from the last, loops backward so we always grab pic on top
     if (mouseButton == LEFT) {
       dragImages[i].draggingpicMousePressed();

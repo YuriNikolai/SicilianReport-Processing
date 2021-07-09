@@ -30,6 +30,12 @@ class DraggingPic {
       mouseY > y &&
       mouseX < x + sample.width && 
       mouseY < y + sample.height) {
+      if (grabsfx.isPlaying() == false) {
+        grabsfx.play();
+      } else {
+        grabsfx.stop(); 
+        grabsfx.play();
+      }
       hold=true;
       xOffset = mouseX - x;
       yOffset = mouseY - y;
@@ -41,7 +47,7 @@ class DraggingPic {
       //release sfx
       //without these checks, a horrible sound bug will permanently
       // screech at us if we spam click   
-      if (dropsfx.isPlaying() == false) { 
+      if (dropsfx.isPlaying() == false) {
         dropsfx.play();
       } else {
         dropsfx.stop(); 
