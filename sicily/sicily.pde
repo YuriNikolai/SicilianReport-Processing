@@ -19,6 +19,7 @@ void setup() {
   noStroke(); 
   noSmooth();
   rectMode (RADIUS);
+  String sfxfolder=sketchPath("data//sfx");
   //begin setup images
   String gfxfolder=sketchPath("data//gfx");//i know this is duplicated on DraggingPic.pde and Pin.pde but moving the gfxpath String outside setup to try and make it global breaks sketchPath for some reason.
   println(gfxfolder);
@@ -46,7 +47,7 @@ void setup() {
   //setup sfx
   String[] sfxStrings = {"crumple1", "crumple2", "sheet1", "sheet2", "sheet3", "pin_remove1", "tap1", "tap2", "tap3", "tap4"};
   for (int i = 0; i < sfxStrings.length; i++) { 
-    sfxVars[i] = new SoundFile(this, sfxStrings[i].concat(".wav"));
+    sfxVars[i] = new SoundFile(this, sfxfolder + "//" + sfxStrings[i].concat(".wav"));
   }
 } //setup
 
